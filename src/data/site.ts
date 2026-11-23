@@ -23,6 +23,13 @@ export const site = {
     'https://www.google.com/maps/search/?api=1&query=726+Maine+Ave%2C+Farmingdale%2C+ME+04344',
 };
 
+// Store hours, grouped for display
+export const hours = [
+  { days: 'Tuesday – Friday', time: '9am – 6pm' },
+  { days: 'Saturday', time: '9am – 3:30pm' },
+  { days: 'Sunday & Monday', time: 'Closed' },
+] as const;
+
 export const specialties = [
   {
     title: 'Big Game',

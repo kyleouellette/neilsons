@@ -43,3 +43,15 @@ It seems most that have a bad experience are definitely thin skinned sissy’s G
 ## Where to find more information
 
 - https://www.chamberofcommerce.com/united-states/maine/farmingdale/sporting-goods-store/37394620-neilson-s-sporting-goods?mc=true
+
+## Hours
+
+|day|open|close|
+|---|----|----|
+|Sunday|-|-|
+|Monday|-|-|
+|Tuesday|9am|6pm|
+|Wednesday|9am|6pm|
+|Thursday|9am|6pm|
+|Friday|9am|6pm|
+|Saturday|9am|3:30pm|
