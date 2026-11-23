@@ -1,0 +1,19 @@
+{
+  "name": "neilsons-sporting-goods",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "build:prod": "DEPLOY_TARGET=prod astro build",
+    "preview": "astro preview",
+    "sync": "rsync -cruv ./dist/ kyle@kyleouellette.com:/home/kyle/www/kyleouellette.com/minimal-homepage/neilsons/",
+    "deploy": "npm run build && npm run sync"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "astro": "^7.4.13",
+    "tailwindcss": "^4.3.5"
+  }
+}
