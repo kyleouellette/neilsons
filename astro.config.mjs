@@ -8,7 +8,7 @@ const isProd = process.env.DEPLOY_TARGET === 'prod' || process.env.WORKERS_CI ==
 
 // Flip to true at launch. Until then the production site shows the
 // under-construction page; the pitch build always shows the full site.
-const launched = false;
+const launched = true;
 
 export default defineConfig({
   site: isProd ? 'https://neilsonssportinggoods.com' : 'https://kyleouellette.com',
