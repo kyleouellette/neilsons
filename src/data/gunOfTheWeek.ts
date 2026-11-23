@@ -16,7 +16,7 @@ export interface FeaturedGun {
 }
 
 export const gunOfTheWeek: FeaturedGun = {
-  weekOf: '2026-11-23',
+  weekOf: '2026-11-22',
   make: 'Tikka',
   model: 'T3x Hunter',
   caliber: '.30-06 Springfield',
@@ -40,7 +40,7 @@ export const gunOfTheWeek: FeaturedGun = {
 };
 
 export const previous: Pick<FeaturedGun, 'weekOf' | 'make' | 'model' | 'caliber'>[] = [
-  { weekOf: '2026-11-16', make: 'Marlin', model: '336 Classic', caliber: '.30-30 Win' },
-  { weekOf: '2026-11-09', make: 'Browning', model: 'Citori 725 Field', caliber: '12 ga' },
-  { weekOf: '2026-11-02', make: 'CVA', model: 'Accura LR-X', caliber: '.50 cal muzzleloader' },
+  { weekOf: '2026-11-15', make: 'Marlin', model: '336 Classic', caliber: '.30-30 Win' },
+  { weekOf: '2026-11-08', make: 'Browning', model: 'Citori 725 Field', caliber: '12 ga' },
+  { weekOf: '2026-11-01', make: 'CVA', model: 'Accura LR-X', caliber: '.50 cal muzzleloader' },
 ];
