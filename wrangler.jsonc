@@ -1,0 +1,10 @@
+// Cloudflare Workers deploy config: serves the static Astro build in ./dist.
+// Having this file stops `wrangler deploy` from auto-configuring the project
+// (which would add the Cloudflare SSR adapter and run the pitch build).
+{
+  "name": "neilsons",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}
