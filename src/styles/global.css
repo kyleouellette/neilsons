@@ -1,11 +1,13 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter/wght.css";
+@import "@fontsource-variable/oswald/wght.css";
 
 /* Dark mode is toggled with a `.dark` class on <html> (see BaseLayout) */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-display: "Oswald", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Oswald Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
 
   /* Sign orange */
   --color-blaze-50: #fff6ed;

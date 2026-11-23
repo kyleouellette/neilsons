@@ -3,6 +3,8 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../data/site';
+import interFont from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import oswaldFont from '@fontsource-variable/oswald/files/oswald-latin-wght-normal.woff2?url';
 
 interface Props {
   title?: string;
@@ -53,13 +55,8 @@ const localBusiness = {
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#1c1917" />
     <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={oswaldFont} as="font" type="font/woff2" crossorigin />
 
     <!-- Apply the saved / system theme before paint to avoid a flash -->
     <script is:inline>
@@ -76,7 +73,7 @@ const localBusiness = {
       !bare && (
         <a
           href="#main"
-          class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-blaze-500 focus:px-4 focus:py-2 focus:text-white"
+          class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-blaze-500 focus:px-4 focus:py-2 focus:text-stone-950"
         >
           Skip to content
         </a>

@@ -1,5 +1,9 @@
 // Gun of the Week — edit this file each week, then `npm run deploy`.
 // Keep older entries in `previous` to show a short history on the page.
+// Photos go in src/assets/ and are imported below so Astro can resize and compress them.
+
+import type { ImageMetadata } from 'astro';
+import tikkaT3xHunter from '../assets/tikka-t3x-hunter.jpg';
 
 export interface FeaturedGun {
   weekOf: string; // ISO date (Monday of the week)
@@ -12,7 +16,7 @@ export interface FeaturedGun {
   blurb: string;
   specs: { label: string; value: string }[];
   goodFor: string[];
-  image?: { src: string; alt: string; width: number; height: number }; // src is relative to /public
+  image?: { src: ImageMetadata; alt: string };
 }
 
 export const gunOfTheWeek: FeaturedGun = {
@@ -32,10 +36,8 @@ export const gunOfTheWeek: FeaturedGun = {
   ],
   goodFor: ['Whitetail', 'Black bear', 'Moose'],
   image: {
-    src: 'tikka-t3x-hunter.jpg',
+    src: tikkaT3xHunter,
     alt: 'Tikka T3x Hunter with walnut stock and fluted stainless barrel on a wooden display stand',
-    width: 1600,
-    height: 1022,
   },
 };
 

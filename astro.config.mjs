@@ -14,6 +14,8 @@ export default defineConfig({
   site: isProd ? 'https://neilsonssportinggoods.com' : 'https://kyleouellette.com',
   base: isProd ? '/' : '/neilsons',
   trailingSlash: 'ignore',
+  // Inline the CSS so it isn't a render-blocking request
+  build: { inlineStylesheets: 'always' },
   vite: {
     plugins: [tailwindcss()],
     define: {

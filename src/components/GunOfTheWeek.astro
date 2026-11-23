@@ -1,7 +1,6 @@
 ---
+import { Picture } from 'astro:assets';
 import { gunOfTheWeek as gun, previous } from '../data/gunOfTheWeek';
-
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const fmt = (iso: string) =>
   new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -11,11 +10,11 @@ const fmt = (iso: string) =>
   <div class="mx-auto max-w-6xl px-4 sm:px-6">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <div>
-        <p class="text-sm font-semibold tracking-widest text-blaze-600 uppercase dark:text-blaze-400">
+        <p class="text-sm font-semibold tracking-widest text-blaze-700 uppercase dark:text-blaze-400">
           Gun of the Week
         </p>
         <h2 class="mt-2 font-display text-4xl font-bold tracking-tight uppercase sm:text-5xl">
-          {gun.make} <span class="text-blaze-600 dark:text-blaze-400">{gun.model}</span>
+          {gun.make} <span class="text-blaze-700 dark:text-blaze-400">{gun.model}</span>
         </h2>
       </div>
       <p class="text-sm text-stone-500 dark:text-stone-400">Week of {fmt(gun.weekOf)}</p>
@@ -25,15 +24,16 @@ const fmt = (iso: string) =>
       <!-- Photo / illustration card -->
       <div
         class="topo relative flex aspect-[4/3] items-center justify-center self-start overflow-hidden rounded-2xl bg-stone-900 lg:col-span-3"
-        style={gun.image && `aspect-ratio: ${gun.image.width} / ${gun.image.height}`}
+        style={gun.image && `aspect-ratio: ${gun.image.src.width} / ${gun.image.src.height}`}
       >
         {
           gun.image ? (
-            <img
-              src={`${base}/${gun.image.src}`}
+            <Picture
+              src={gun.image.src}
               alt={gun.image.alt}
-              width={gun.image.width}
-              height={gun.image.height}
+              formats={['avif', 'webp']}
+              widths={[480, 800, 1200, 1600]}
+              sizes="(min-width: 1152px) 650px, (min-width: 1024px) 57vw, 100vw"
               loading="lazy"
               decoding="async"
               class="absolute inset-0 size-full object-cover"
@@ -58,7 +58,7 @@ const fmt = (iso: string) =>
           )
         }
         <span
-          class="absolute top-4 left-4 rounded-full bg-blaze-500 px-3 py-1 text-xs font-bold tracking-wider text-white uppercase shadow"
+          class="absolute top-4 left-4 rounded-full bg-blaze-500 px-3 py-1 text-xs font-bold tracking-wider text-stone-950 uppercase shadow"
           >{gun.condition}</span
         >
         <p
@@ -100,7 +100,7 @@ const fmt = (iso: string) =>
           <p class="font-display text-3xl font-bold">{gun.price ?? 'Call for price'}</p>
           <a
             href="#visit"
-            class="rounded-md bg-blaze-500 px-5 py-3 font-semibold text-white shadow-sm transition-colors hover:bg-blaze-600"
+            class="rounded-md bg-blaze-500 px-5 py-3 font-semibold text-stone-950 shadow-sm transition-colors hover:bg-blaze-600"
             >Come see it in person</a
           >
         </div>

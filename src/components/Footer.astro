@@ -16,11 +16,11 @@ const year = new Date().getFullYear();
         {site.address.street}<br />
         {site.address.city}, {site.address.state} {site.address.zip}
       </address>
-      <p class="mt-2">
-        <a href={site.phoneHref} class="hover:text-white">{site.phone}</a><br />
-        <a href={`mailto:${site.email}`} class="break-all hover:text-white">{site.email}</a>
+      <p class="mt-1">
+        <a href={site.phoneHref} class="inline-block py-1.5 hover:text-white">{site.phone}</a><br />
+        <a href={`mailto:${site.email}`} class="inline-block py-1.5 break-all hover:text-white">{site.email}</a>
       </p>
-      <a href={site.mapsUrl} target="_blank" rel="noopener" class="mt-2 inline-block text-blaze-400 hover:text-blaze-300"
+      <a href={site.mapsUrl} target="_blank" rel="noopener" class="inline-block py-1.5 text-blaze-400 hover:text-blaze-300"
         >Get directions →</a
       >
       <p class="mt-4 font-semibold text-stone-200">Hours</p>
@@ -38,7 +38,7 @@ const year = new Date().getFullYear();
     <div class="text-sm">
       <p class="font-semibold text-stone-200">Been in?</p>
       <p class="mt-2">Tell other hunters about your visit.</p>
-      <a href={site.yelpUrl} target="_blank" rel="noopener" class="mt-2 inline-block text-blaze-400 hover:text-blaze-300"
+      <a href={site.yelpUrl} target="_blank" rel="noopener" class="mt-1 inline-block py-1.5 text-blaze-400 hover:text-blaze-300"
         >Review us on Yelp →</a
       >
     </div>
