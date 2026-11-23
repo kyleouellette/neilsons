@@ -7,9 +7,12 @@ import { site } from '../data/site';
 interface Props {
   title?: string;
   description?: string;
+  /** Omit the site header and footer (e.g. the under-construction page) */
+  bare?: boolean;
 }
 
 const {
+  bare = false,
   title = `${site.name} | Firearms, Reloading & Hunting Gear in ${site.town}, ME`,
   description = `New and used rifles, shotguns and handguns, reloading supplies and blackpowder in ${site.town}, ${site.state}. Serving hunters since ${site.established}.`,
 } = Astro.props;
@@ -69,15 +72,20 @@ const localBusiness = {
     </script>
   </head>
   <body class="flex min-h-screen flex-col font-sans">
-    <a
-      href="#main"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-blaze-500 focus:px-4 focus:py-2 focus:text-white"
-      >Skip to content</a
-    >
-    <Header />
+    {
+      !bare && (
+        <a
+          href="#main"
+          class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-blaze-500 focus:px-4 focus:py-2 focus:text-white"
+        >
+          Skip to content
+        </a>
+      )
+    }
+    {!bare && <Header />}
     <main id="main" class="flex-1">
       <slot />
     </main>
-    <Footer />
+    {!bare && <Footer />}
   </body>
 </html>

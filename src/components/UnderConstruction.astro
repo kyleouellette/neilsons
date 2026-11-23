@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout bare>
+  <section class="topo relative flex min-h-screen items-center overflow-hidden bg-stone-900 text-white">
+    <div class="absolute inset-x-0 bottom-0 h-1.5 bg-blaze-500"></div>
+    <div class="mx-auto w-full max-w-3xl px-4 py-20 sm:px-6">
+      <div class="flex items-center gap-3">
+        <span
+          class="grid size-12 place-items-center rounded-md bg-blaze-500 font-display text-3xl font-bold text-white shadow-sm"
+          aria-hidden="true">N</span
+        >
+        <span class="leading-tight">
+          <span class="block font-display text-2xl font-semibold tracking-wide uppercase">{site.name}</span>
+          <span class="block text-xs tracking-widest text-stone-400 uppercase"
+            >{site.town}, {site.state} · Est. {site.established}</span
+          >
+        </span>
+      </div>
+
+      <p class="mt-14 text-sm font-semibold tracking-[0.25em] text-blaze-400 uppercase">Under construction</p>
+      <h1 class="mt-4 font-display text-5xl leading-[1.05] font-bold tracking-tight uppercase sm:text-6xl">
+        Our new website is <span class="text-blaze-500">on its way.</span>
+      </h1>
+      <p class="mt-6 max-w-xl text-lg text-stone-300">
+        We're putting the finishing touches on it. In the meantime, give us a call or stop by the shop for rifles,
+        shotguns, handguns, reloading supplies and blackpowder.
+      </p>
+
+      <ul class="mt-10 space-y-4 text-stone-200">
+        <li class="flex items-start gap-3">
+          <span class="mt-0.5 text-blaze-400"><Icon name="pin" /></span>
+          <address class="not-italic">
+            {site.address.street}<br />
+            {site.address.city}, {site.address.state} {site.address.zip}
+          </address>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-blaze-400"><Icon name="phone" /></span>
+          <a href={site.phoneHref} class="font-medium hover:text-blaze-300">{site.phone}</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-blaze-400"><Icon name="mail" /></span>
+          <a href={`mailto:${site.email}`} class="font-medium break-all hover:text-blaze-300">{site.email}</a>
+        </li>
+      </ul>
+
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a
+          href={site.phoneHref}
+          class="rounded-md bg-blaze-500 px-6 py-3 font-semibold text-white shadow-lg shadow-blaze-900/30 transition-colors hover:bg-blaze-600"
+          >Call the shop</a
+        >
+        <a
+          href={site.mapsUrl}
+          target="_blank"
+          rel="noopener"
+          class="rounded-md border border-stone-600 px-6 py-3 font-semibold text-stone-100 transition-colors hover:border-blaze-400 hover:text-blaze-300"
+          >Get directions</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>
