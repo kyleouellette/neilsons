@@ -10,6 +10,10 @@ const isProd = process.env.DEPLOY_TARGET === 'prod' || process.env.WORKERS_CI ==
 // under-construction page; the pitch build always shows the full site.
 const launched = false;
 
+// Cloudflare builds of any branch other than main (e.g. `staging`) are
+// preview deploys, so they show the full site even before launch.
+const isPreviewBranch = !!process.env.WORKERS_CI_BRANCH && process.env.WORKERS_CI_BRANCH !== 'main';
+
 export default defineConfig({
   site: isProd ? 'https://neilsonssportinggoods.com' : 'https://kyleouellette.com',
   base: isProd ? '/' : '/neilsons',
@@ -19,7 +23,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     define: {
-      'import.meta.env.UNDER_CONSTRUCTION': JSON.stringify(isProd && !launched),
+      'import.meta.env.UNDER_CONSTRUCTION': JSON.stringify(isProd && !launched && !isPreviewBranch),
     },
   },
 });
