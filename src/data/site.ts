@@ -15,7 +15,7 @@ export const site = {
   },
   phone: '(207) 629-9163',
   phoneHref: 'tel:+12076299163',
-  email: 'babydogham@gmail.com',
+  email: 'support@neilsonssportinggoods.com',
   // TODO: swap for the shop's direct Yelp business URL once confirmed
   yelpUrl:
     'https://www.yelp.com/search?find_desc=Neilson%27s+Sporting+Goods&find_loc=Farmingdale%2C+ME',
