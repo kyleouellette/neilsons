@@ -6,5 +6,8 @@
   "compatibility_date": "2026-11-01",
   "assets": {
     "directory": "./dist"
-  }
+  },
+  // Required by `wrangler preview` for staging/branch previews; the assets
+  // and compatibility settings above are shared, so it can stay empty.
+  "previews": {}
 }
