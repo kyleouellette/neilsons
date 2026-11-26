@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import serviceWorker from './integrations/service-worker.mjs';
 
 // Pitch build (default): https://kyleouellette.com/neilsons
 // Production build (`npm run build:prod`, or any Cloudflare build): https://neilsonssportinggoods.com
@@ -20,6 +21,8 @@ export default defineConfig({
   trailingSlash: 'ignore',
   // Inline the CSS so it isn't a render-blocking request
   build: { inlineStylesheets: 'always' },
+  // Generates dist/sw.js so the site works offline
+  integrations: [serviceWorker()],
   vite: {
     plugins: [tailwindcss()],
     define: {

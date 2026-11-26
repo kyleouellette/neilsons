@@ -67,6 +67,25 @@ const localBusiness = {
         document.documentElement.classList.toggle('dark', theme === 'dark');
       })();
     </script>
+
+    <!-- Offline support (sw.js is generated at build time, so not in dev) -->
+    {
+      import.meta.env.PROD && (
+        <script is:inline define:vars={{ base }}>
+          if ('serviceWorker' in navigator) {
+            addEventListener('load', async () => {
+              try {
+                await navigator.serviceWorker.register(`${base}/sw.js`, { scope: `${base}/` });
+                const reg = await navigator.serviceWorker.ready;
+                // Hand over what this page already loaded so it's cached for offline use
+                const urls = performance.getEntriesByType('resource').map((entry) => entry.name);
+                reg.active?.postMessage({ type: 'cache-urls', urls });
+              } catch {}
+            });
+          }
+        </script>
+      )
+    }
   </head>
   <body class="flex min-h-screen flex-col font-sans">
     {

@@ -1,3 +1,7 @@
 # Cloudflare (production). Hashed build assets never change.
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Always check for a new service worker so site updates roll out promptly
+/sw.js
+  Cache-Control: no-cache
