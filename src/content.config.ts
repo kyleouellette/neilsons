@@ -2,14 +2,14 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-// Gun of the Week — add one Markdown file per week to src/content/guns/, then deploy.
+// Gun of the Week — run `npm run new-gun` (or add a Markdown file to src/content/guns/), then deploy.
 // The newest published `weekOf` is featured; the next three show as "Previously featured".
 // Photos sit next to the Markdown file and are referenced by relative path.
 const guns = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/guns' }),
   schema: ({ image }) =>
     z.object({
-      weekOf: z.coerce.date(), // Monday of the week, e.g. 2026-11-22
+      weekOf: z.coerce.date(), // Sunday the week starts, e.g. 2026-11-22
       make: z.string(),
       model: z.string(),
       caliber: z.string(),
