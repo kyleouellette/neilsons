@@ -1,0 +1,30 @@
+# Rebuilds and deploys the production site every week so Gun of the Week
+# entries dated in the future go live on their week without a push.
+# Scheduled runs always use the default branch (main).
+name: Weekly rebuild
+
+on:
+  schedule:
+    - cron: '0 10 * * 0' # Sundays 10:00 UTC (5am EST / 6am EDT)
+  workflow_dispatch: # allow running it by hand from the Actions tab
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build:prod
+
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
